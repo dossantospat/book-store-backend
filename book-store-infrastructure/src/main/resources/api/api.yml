@@ -1,0 +1,243 @@
+swagger: "2.0"
+info:
+  title: Manage authors and their books
+  description: >-
+    This API is used to manage authors and their books. An author can write
+    multiples books and a book can be written by multiple authors
+  version: 1.0.0
+host: localhost:8080
+basePath: /services
+schemes:
+  - http
+paths:
+  /authors:
+    get:
+      summary: Returns a list authors
+      description: Returns a list of all the known authors
+      tags:
+        - author
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Operation successfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AuthorDTO'
+    post:
+      summary: Add a new author
+      description: Add a new author to the library
+      operationId: addAuthor
+      tags:
+        - author
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: author
+          description: The author to create.
+          schema:
+            $ref: '#/definitions/AuthorDTO'
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Author created with success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AuthorDTO'
+    put:
+      summary: Updates an author
+      description: Updates an existing author
+      operationId: updateAuthor
+      tags:
+        - author
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: author
+          description: The author to update.
+          schema:
+            $ref: '#/definitions/AuthorDTO'
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Author updated with success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AuthorDTO'
+  /authors/{authorId}:
+    get:
+      summary: Returns a single author
+      description: Updates an existing author
+      operationId: getAuthor
+      tags:
+        - author
+      parameters:
+      - in: path
+        name: authorId
+        type: integer
+        required: true
+        description: Numeric ID of the author to get.
+      responses:
+        200:
+          description: Operation successfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AuthorDTO'
+    delete:
+      summary: Deletes a single author
+      description: Deletes an existing author
+      operationId: deleteAuthor
+      tags:
+        - author
+      parameters:
+      - in: path
+        name: authorId
+        type: integer
+        required: true
+        description: Numeric ID of the author to delete.
+      responses:
+        200:
+          description: Operation successfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AuthorDTO'
+  /books:
+    get:
+      summary: Returns a list books
+      description: Returns a list of all the known books
+      operationId: listBooks
+      tags:
+        - book
+      produces:
+        - application/json
+      responses:
+        200:
+          description: Operation successfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BookDTO'
+    post:
+      summary: Add a new book
+      description: Add a new book to the library
+      operationId: addBook
+      tags:
+        - book
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: book
+          description: The book to create.
+          schema:
+            $ref: '#/definitions/AuthorDTO'
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Book created with success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BookDTO'
+    put:
+      summary: Updates a book
+      description: Updates an existing book
+      operationId: updateBook
+      tags:
+        - book
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name: book
+          description: The book to update.
+          schema:
+            $ref: '#/definitions/BookDTO'
+      produces:
+        - application/json
+      responses:
+        201:
+          description: Book updated with success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BookDTO'
+  /books/{bookId}:
+    get:
+      summary: Returns a single book
+      description: Updates an existing book
+      operationId: getBook
+      tags:
+        - book
+      parameters:
+      - in: path
+        name: bookId
+        type: integer
+        required: true
+        description: Numeric ID of the book to get.
+      responses:
+        200:
+          description: Operation successfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BookDTO'
+    delete:
+      summary: Deletes a single book
+      description: Deletes an existing book
+      operationId: deleteBook
+      tags:
+        - book
+      parameters:
+      - in: path
+        name: bookId
+        type: integer
+        required: true
+        description: Numeric ID of the book to delete.
+      responses:
+        200:
+          description: Operation successfull
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/BookDTO'
+definitions:
+  AuthorDTO:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+        example: Georges R.R. Martin.
+      books:
+        type: array
+        items:
+          $ref: '#/definitions/BookDTO'
+  BookDTO:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int64
+      title:
+        type: string
+        example: Game of thrones
+      publishedAt:
+        type: string
+        format: date
+      authors:
+        type: array
+        items:
+          $ref: '#/definitions/AuthorDTO'
