@@ -32,7 +32,6 @@
             <plugin>
                 <groupId>io.swagger</groupId>
                 <artifactId>swagger-codegen-maven-plugin</artifactId>
-                <version>2.2.3</version>
                 <executions>
                     <execution>
                         <goals>
@@ -41,10 +40,14 @@
                         <configuration>
                             <language>jaxrs-cxf</language>
                             <inputSpec>${project.basedir}/src/main/resources/api/api.yml</inputSpec>
+                            <output>${project.basedir}/src/main/java-generated</output>
+                            <generateSupportingFiles>true</generateSupportingFiles>
                             <configOptions>
-                                <sourceFolder>${project.basedir}/src/main/java-generated</sourceFolder>
+                                <sourceFolder>/</sourceFolder>
                                 <dateLibrary>java8</dateLibrary>
+                                <implFolder>/</implFolder>
                             </configOptions>
+                            <generateApiTests>false</generateApiTests>
                             <modelPackage>com.dspexpertise.bookstore.backend.infrastructure.model</modelPackage>
                             <apiPackage>com.dspexpertise.bookstore.backend.infrastructure.webservice</apiPackage>
                         </configuration>

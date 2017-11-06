@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.dspexpertise")
-@EntityScan("com.dspexpertise.model")
-@EnableJpaRepositories("com.dspexpertise.model")
+@EntityScan("com.dspexpertise.bookstore.backend.domain.model")
+@EnableJpaRepositories("com.dspexpertise.bookstore.backend.domain.model")
 public class BookStoreApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BookStoreApplication.class, args);

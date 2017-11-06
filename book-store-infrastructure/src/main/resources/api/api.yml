@@ -76,6 +76,8 @@ paths:
       summary: Returns a single author
       description: Updates an existing author
       operationId: getAuthor
+      produces:
+        - application/json
       tags:
         - author
       parameters:
@@ -177,6 +179,8 @@ paths:
       summary: Returns a single book
       description: Updates an existing book
       operationId: getBook
+      produces:
+        - application/json
       tags:
         - book
       parameters:
