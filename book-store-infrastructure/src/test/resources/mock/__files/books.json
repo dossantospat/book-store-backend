@@ -1,0 +1,20 @@
+{
+  "data": [
+    {
+      "type": "BookDTO",
+      "id": 1,
+      "attributes": {
+        "title": "A game of thrones",
+        "description": "In a medieval world surrounded by mysteries, five houses fight for the iron throne."
+      }
+    },
+    {
+      "type": "BookDTO",
+      "id": 2,
+      "attributes": {
+        "title": "Lord of the rings",
+        "description": "A tiny gnome with hairy feet must bring a jewel to a fiery mountain."
+      }
+    }
+  ]
+}

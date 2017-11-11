@@ -1,0 +1,14 @@
+{
+  "data": [{
+    "type": "AuthorDTO",
+    "id": 1,
+    "attributes": {
+      "name": "Georges R.R. Martin"
+    }},{
+      "type": "AuthorDTO",
+      "id": 2,
+      "attributes": {
+        "name": "J.R.R. Tolkien"
+      }
+  }]
+}

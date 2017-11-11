@@ -1,0 +1,9 @@
+{
+	"data": {
+		"type": "AuthorDTO",
+		"id": 1,
+		"attributes": {
+			"name": "Georges R.R. Martin"
+		}
+	}
+}

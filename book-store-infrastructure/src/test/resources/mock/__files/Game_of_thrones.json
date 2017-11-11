@@ -1,0 +1,10 @@
+{
+    "data": {
+        "type": "BookDTO",
+        "id": 1,
+        "attributes": {
+            "title": "A game of thrones",
+            "description": "In a medieval world surrounded by mysteries, five houses fight for the iron throne."
+        }
+    }
+}
