@@ -29,8 +29,8 @@ public interface AuthorApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Add a new author", tags={ "author",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "Author created with success", response = AuthorDTO.class, responseContainer = "List") })
-    public List<AuthorDTO> addAuthor(@Valid AuthorDTO author);
+        @ApiResponse(code = 201, message = "Author created with success", response = AuthorDTO.class) })
+    public AuthorDTO addAuthor(@Valid AuthorDTO author);
 
     @GET
     @Path("/authors")
@@ -44,16 +44,16 @@ public interface AuthorApi  {
     @Path("/authors/{authorId}")
     @ApiOperation(value = "Deletes a single author", tags={ "author",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Operation successfull", response = AuthorDTO.class, responseContainer = "List") })
-    public List<AuthorDTO> deleteAuthor(@PathParam("authorId") Integer authorId);
+        @ApiResponse(code = 200, message = "Operation successfull", response = AuthorDTO.class) })
+    public AuthorDTO deleteAuthor(@PathParam("authorId") Integer authorId);
 
     @GET
     @Path("/authors/{authorId}")
     @Produces({ "application/json" })
     @ApiOperation(value = "Returns a single author", tags={ "author",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Operation successfull", response = AuthorDTO.class, responseContainer = "List") })
-    public List<AuthorDTO> getAuthor(@PathParam("authorId") Integer authorId);
+        @ApiResponse(code = 200, message = "Operation successfull", response = AuthorDTO.class) })
+    public AuthorDTO getAuthor(@PathParam("authorId") Integer authorId);
 
     @PUT
     @Path("/authors")
@@ -61,7 +61,7 @@ public interface AuthorApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Updates an author", tags={ "author" })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "Author updated with success", response = AuthorDTO.class, responseContainer = "List") })
-    public List<AuthorDTO> updateAuthor(@Valid AuthorDTO author);
+        @ApiResponse(code = 201, message = "Author updated with success", response = AuthorDTO.class) })
+    public AuthorDTO updateAuthor(@Valid AuthorDTO author);
 }
 

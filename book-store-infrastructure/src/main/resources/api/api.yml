@@ -45,9 +45,7 @@ paths:
         201:
           description: Author created with success
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/AuthorDTO'
+            $ref: '#/definitions/AuthorDTO'
     put:
       summary: Updates an author
       description: Updates an existing author
@@ -68,9 +66,7 @@ paths:
         201:
           description: Author updated with success
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/AuthorDTO'
+            $ref: '#/definitions/AuthorDTO'
   /authors/{authorId}:
     get:
       summary: Returns a single author
@@ -90,9 +86,7 @@ paths:
         200:
           description: Operation successfull
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/AuthorDTO'
+            $ref: '#/definitions/AuthorDTO'
     delete:
       summary: Deletes a single author
       description: Deletes an existing author
@@ -109,9 +103,7 @@ paths:
         200:
           description: Operation successfull
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/AuthorDTO'
+            $ref: '#/definitions/AuthorDTO'
   /books:
     get:
       summary: Returns a list books
@@ -148,9 +140,7 @@ paths:
         201:
           description: Book created with success
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/BookDTO'
+            $ref: '#/definitions/BookDTO'
     put:
       summary: Updates a book
       description: Updates an existing book
@@ -171,9 +161,7 @@ paths:
         201:
           description: Book updated with success
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/BookDTO'
+            $ref: '#/definitions/BookDTO'
   /books/{bookId}:
     get:
       summary: Returns a single book
@@ -193,9 +181,7 @@ paths:
         200:
           description: Operation successfull
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/BookDTO'
+            $ref: '#/definitions/BookDTO'
     delete:
       summary: Deletes a single book
       description: Deletes an existing book
@@ -212,9 +198,7 @@ paths:
         200:
           description: Operation successfull
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/BookDTO'
+            $ref: '#/definitions/BookDTO'
 definitions:
   AuthorDTO:
     type: object

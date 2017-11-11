@@ -13,25 +13,24 @@ import java.util.List;
 @Path("/")
 @Service
 public class BookApiServiceImpl implements BookApi {
-    public List<BookDTO> addBook(AuthorDTO book) {
+    public BookDTO addBook(AuthorDTO book) {
         // TODO: Implement...
         
         return null;
     }
     
-    public List<BookDTO> deleteBook(Integer bookId) {
+    public BookDTO deleteBook(Integer bookId) {
         // TODO: Implement...
         
         return null;
     }
     
-    public List<BookDTO> getBook(Integer bookId) {
-        List<BookDTO> books = new ArrayList<>();
+    public BookDTO getBook(Integer bookId) {
         BookDTO book = new BookDTO();
         book.setId(1L);
         book.setPublishedAt(LocalDate.now());
         book.setTitle("Le seigneur des anneaux");
-        return books;
+        return book;
     }
     
     public List<BookDTO> listBooks() {
@@ -44,7 +43,7 @@ public class BookApiServiceImpl implements BookApi {
         return books;
     }
     
-    public List<BookDTO> updateBook(BookDTO book) {
+    public BookDTO updateBook(BookDTO book) {
         // TODO: Implement...
         
         return null;

@@ -30,23 +30,23 @@ public interface BookApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Add a new book", tags={ "book",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "Book created with success", response = BookDTO.class, responseContainer = "List") })
-    public List<BookDTO> addBook(@Valid AuthorDTO book);
+        @ApiResponse(code = 201, message = "Book created with success", response = BookDTO.class) })
+    public BookDTO addBook(@Valid AuthorDTO book);
 
     @DELETE
     @Path("/books/{bookId}")
     @ApiOperation(value = "Deletes a single book", tags={ "book",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Operation successfull", response = BookDTO.class, responseContainer = "List") })
-    public List<BookDTO> deleteBook(@PathParam("bookId") Integer bookId);
+        @ApiResponse(code = 200, message = "Operation successfull", response = BookDTO.class) })
+    public BookDTO deleteBook(@PathParam("bookId") Integer bookId);
 
     @GET
     @Path("/books/{bookId}")
     @Produces({ "application/json" })
     @ApiOperation(value = "Returns a single book", tags={ "book",  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Operation successfull", response = BookDTO.class, responseContainer = "List") })
-    public List<BookDTO> getBook(@PathParam("bookId") Integer bookId);
+        @ApiResponse(code = 200, message = "Operation successfull", response = BookDTO.class) })
+    public BookDTO getBook(@PathParam("bookId") Integer bookId);
 
     @GET
     @Path("/books")
@@ -62,7 +62,7 @@ public interface BookApi  {
     @Produces({ "application/json" })
     @ApiOperation(value = "Updates a book", tags={ "book" })
     @ApiResponses(value = { 
-        @ApiResponse(code = 201, message = "Book updated with success", response = BookDTO.class, responseContainer = "List") })
-    public List<BookDTO> updateBook(@Valid BookDTO book);
+        @ApiResponse(code = 201, message = "Book updated with success", response = BookDTO.class) })
+    public BookDTO updateBook(@Valid BookDTO book);
 }
 
