@@ -32,6 +32,11 @@
         <swagger-codegen.version>2.2.3</swagger-codegen.version>
         <swagger.version>1.5.16</swagger.version>
         <validation.version>1.1.0.Final</validation.version>
+        <wiremock.version>2.11.0</wiremock.version>
+        <!-- mock -->
+        <skip-mock>false</skip-mock>
+        <mock.resources.repository>src/test/resources/mock</mock.resources.repository>
+        <outputAbsoluteArtifactFilename>wiremock-standalone.jar</outputAbsoluteArtifactFilename>
     </properties>
     <name>Book store</name>
     <description>Book store management project</description>
@@ -108,6 +113,11 @@
                 <artifactId>validation-api</artifactId>
                 <version>${validation.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.github.tomakehurst</groupId>
+                <artifactId>wiremock-standalone</artifactId>
+                <version>${wiremock.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
@@ -120,5 +130,51 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip-mock}</skip>
+                            <addParentPoms>true</addParentPoms>
+                            <includeGroupIds>com.github.tomakehurst</includeGroupIds>
+                            <includeArtifactIds>wiremock-standalone</includeArtifactIds>
+                            <stripVersion>true</stripVersion>
+                            <outputDirectory>${project.build.directory}/mock</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${skip-mock}</skip>
+                            <outputDirectory>${project.build.directory}/mock</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${mock.resources.repository}/</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 </project>
