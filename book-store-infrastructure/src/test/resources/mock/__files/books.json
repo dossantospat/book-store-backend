@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "type": "BookDTO",
+      "type": "book",
       "id": 1,
       "attributes": {
         "title": "A game of thrones",
@@ -9,7 +9,7 @@
       }
     },
     {
-      "type": "BookDTO",
+      "type": "book",
       "id": 2,
       "attributes": {
         "title": "Lord of the rings",

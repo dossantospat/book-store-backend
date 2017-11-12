@@ -1,6 +1,6 @@
 {
     "data": {
-        "type": "BookDTO",
+        "type": "book",
         "id": 1,
         "attributes": {
             "title": "A game of thrones",
